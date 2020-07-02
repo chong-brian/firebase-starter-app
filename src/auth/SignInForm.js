@@ -8,6 +8,8 @@ import {
     Modal,
     TextInput,
 } from '../ui';
+import { signIn } from './signIn';
+import { signInWithGoogle } from './signInWithGoogle';
 import { ResetPasswordForm } from './ResetPasswordForm';
 
 const Form = styled.div`
@@ -46,11 +48,18 @@ export const SignInForm = () => {
     const history = useHistory();
 
     const onSignInClicked = async () => {
-        // Firebase code goes here
+        console.log("CLICKE");
+        try {
+            await signIn(emailValue, passwordValue);
+            history.push('/');
+        } catch (e) {
+            setErrorMessage(e.message);
+        }
     }
 
     const onSignInWithGoogleClicked = async () => {
-        // Firebase code goes here
+        await signInWithGoogle();
+        history.push('/');
     }
 
     return (
