@@ -1,10 +1,9 @@
-import firebase from "firebase/app";
-import { useForkRef } from "@material-ui/core";
+import firebase from 'firebase/app';
 
 export const getCurrentUser = () => {
-  const user = firebase.auth().currentUser;
-  if (!user) return null;
-  return {
-    id: user.uid,
-  };
-};
+    const user = firebase.auth().currentUser;
+    if (!user) return null;
+    return {
+        id: user.uid,
+    };
+}
